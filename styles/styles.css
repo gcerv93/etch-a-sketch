@@ -1,0 +1,26 @@
+
+h1 {
+  text-align: center;
+}
+
+.container {
+  height: 500px;
+  width: 500px;
+  border: 5px solid black;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.row {
+  border: 0.5px solid black;
+  flex: 1;
+  box-sizing: border-box;
+  display: flex;
+}
+
+.cell {
+  border-right: 0.1px solid black;
+  flex: 1;
+  box-sizing: border-box;
+}
