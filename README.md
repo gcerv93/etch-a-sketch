@@ -1,0 +1,1 @@
+I will be creating the Etch-a-Sketch project using HTML/CSS/Javascript.
