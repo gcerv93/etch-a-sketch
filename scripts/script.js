@@ -28,12 +28,16 @@ function createGrid(size) {
   cellEventListen();
 }
 
-function cellEventListen() {
+function cellEventListen(color = "black") {
   const cells = document.querySelectorAll('.cell');
   cells.forEach(cell => {
     cell.addEventListener('mouseover', (e) => {
       // when a specific cell is targeted, change its color
-      e.target.setAttribute("style",  "background-color: black");
+      if (color == "color") {
+        e.target.setAttribute("style",  `background-color: rgb(${randomRgbNum()}, ${randomRgbNum()}, ${randomRgbNum()}`);
+      } else if (color == "black") {
+        e.target.setAttribute("style", "background-color: black");
+      }
     })
   })
 }
@@ -48,8 +52,22 @@ gridSizeBtn.addEventListener('click', () => {
   createGrid(size);
 })
 
+colorBtn = document.querySelector('.color');
+colorBtn.addEventListener('click', () => {
+  cellEventListen("color");
+})
+
+blackBtn = document.querySelector('.black');
+blackBtn.addEventListener('click', () => {
+  cellEventListen();
+})
+
 function removeAllChildNodes(parent) {
   while (parent.firstChild) {
       parent.removeChild(parent.firstChild);
   }
+}
+
+function randomRgbNum() {
+  return Math.floor(Math.random() * 255) + 1;
 }
