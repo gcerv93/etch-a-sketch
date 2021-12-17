@@ -25,13 +25,31 @@ function createGrid(size) {
       i++
     }
   })
+  cellEventListen();
 }
 
-const cells = document.querySelectorAll('.cell');
-
-cells.forEach(cell => {
-  cell.addEventListener('mouseover', (e) => {
-    // when a specific cell is targeted, change its color
-    e.target.setAttribute("style",  "background-color: black");
+function cellEventListen() {
+  const cells = document.querySelectorAll('.cell');
+  cells.forEach(cell => {
+    cell.addEventListener('mouseover', (e) => {
+      // when a specific cell is targeted, change its color
+      e.target.setAttribute("style",  "background-color: black");
+    })
   })
+}
+
+const gridSizeBtn = document.querySelector('.gridBtn');
+gridSizeBtn.addEventListener('click', () => {
+  let size = prompt("Enter a grid size: ")
+  while (size > 100) {
+    size = prompt("Please enter a value less than or equals to 100: ");
+  }
+  removeAllChildNodes(container);
+  createGrid(size);
 })
+
+function removeAllChildNodes(parent) {
+  while (parent.firstChild) {
+      parent.removeChild(parent.firstChild);
+  }
+}
